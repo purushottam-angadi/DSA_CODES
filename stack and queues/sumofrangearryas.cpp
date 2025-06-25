@@ -1,0 +1,1 @@
+//subtract sum of maximum of arrys from minimum of arrays
