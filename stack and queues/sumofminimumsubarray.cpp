@@ -9,7 +9,7 @@ vector<int> nse(arr.size());
 stack<int> st;
 for(int i=arr.size()-1; i>=0; i--)
 {
-   while(!st.empty() && arr[st.top()]<=arr[i])
+   while(!st.empty() && arr[st.top()]>=arr[i])
    {
     st.pop();
    }
@@ -24,7 +24,7 @@ vector<int> findPSEE(vector <int> arr)
 {
     vector<int>pse(arr.size());
 stack<int> st;
-for(int i=0; i<arr.size(); i--)
+for(int i=0; i<arr.size(); i++)
 {
    while(!st.empty() && arr[st.top()]>arr[i])
    {

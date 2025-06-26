@@ -3,7 +3,7 @@
 #include<stack>
 using namespace std;
 
-vector<int> findNSE(vector <int> arr)
+vector<int> findNGE(vector <int> arr)
 {
 vector<int> nge(arr.size());
 stack<int> st;
@@ -20,9 +20,9 @@ for(int i=arr.size()-1; i>=0; i--)
 return nge;
 }
 
-vector<int> findPSEE(vector <int> arr)
+vector<int> findPGEE(vector <int> arr)
 {
-    vector<int>pse(arr.size());
+    vector<int>pge(arr.size());
 stack<int> st;
 for(int i=0; i<arr.size(); i++)
 {
@@ -30,22 +30,22 @@ for(int i=0; i<arr.size(); i++)
    {
     st.pop();
    }
-   if(st.empty()) pse[i]=-1;
-   else pse[i]=st.top();
+   if(st.empty()) pge[i]=-1;
+   else pge[i]=st.top();
    st.push(i);
 }
-return pse;
+return pge;
 }
 
 int sum(vector <int> arr)
 {
- vector<int> nse=findNSE(arr);
- vector<int> pse=findPSEE(arr);
+ vector<int> nse=findNGE(arr);
+ vector<int> pge=findPGEE(arr);
 long long total=0, mod =int(1e9+7);
 
  for(int i=0;i<arr.size();i++)
  {
-    int left=i-pse[i];
+    int left=i-pge[i];
     int right=nse[i]-i;
     total=(total+ (right*left*arr[i])%mod)%mod;
 
